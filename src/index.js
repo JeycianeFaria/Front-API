@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Login from './components/pages/login';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 ReactDOM.render(
-  <div>
-    <h1>ZupLink</h1>
-  </div>,
+  <Login/>,
   document.getElementById('root')
 );
 
