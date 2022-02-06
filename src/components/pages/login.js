@@ -1,12 +1,12 @@
 import react,{Component} from "react";
 import { Form,FormGroup,Label,Input,Button } from "reactstrap";
-import "../../styles/login.css"
+import "../../styles/formulario.css"
 
 
 export default class Login extends Component{
 	render(){
 		return(
-			<div className="Login">
+			<div className="Formulario">
 				<Form>
 					<h1>Login</h1>
 					<FormGroup>
