@@ -1,29 +1,75 @@
-import react, {Component} from "react";
-import {Form,FormGroup,Label,Input,Button} from 'reactstrap'
-import "../../styles/formulario.css"
+import react, { Component } from "react";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import "../../styles/formulario.css";
 
+export default class CadastroUsuario extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: this.props.state ? this.state.message : "",
+    };
+  }
 
-export default class CadastroUsuario extends Component{
-    render(){
-        return(
-            <div className="Formulario">
-                <Form>
-                    <h1>Cadastro Usuario</h1>
-                    <FormGroup>
-                        <Label for="nome">Nome</Label>
-                        <Input type="text" id="nome" placeholder="Digite aqui seu nome"></Input>
-                    </FormGroup>
-                    <FormGroup>
-						<Label for="email">Email</Label>
-						<Input type="text" id="email" placeholder="Digite aqui seu email"/>
-					</FormGroup>
-					<FormGroup>
-						<Label for="senha" >Senha</Label>
-						<Input type="password" id="senha" placeholder="Digite aqui sua senha"/>
-					</FormGroup>
-                    <Button color="primary" block >Cadastrar</Button>
-                </Form> 
-            </div>
-        );
-    }
+  save = () => {
+    const url = "http://localhost:8080/usuario";
+    let data = {
+      nome: this.nome,
+      email: this.email,
+      senha: this.senha,
+    };
+    const requestInfo = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    };
+    fetch(url, requestInfo)
+      .then((response) => {
+          if(response.create){
+            console.log("Cadastro efetuado com sucesso!");
+            return response;
+          }
+          console.log("erro")
+        
+      })
+      .catch((e) => {
+        this.setState({ message: e.message });
+      });
+  };
+
+  render() {
+    return (
+      <div className="Formulario">
+        <Form>
+          <h1>Cadastro Usuario</h1>
+          <FormGroup>
+            <Label for="nome">Nome</Label>
+            <Input
+              type="text"
+              id="nome"
+              placeholder="Digite aqui seu nome"
+              onChange={(e) => (this.nome = e.target.value)}
+            ></Input>
+          </FormGroup>
+          <FormGroup>
+            <Label for="email">Email</Label>
+            <Input type="text" id="email" placeholder="Digite aqui seu email" onChange={(e) => (this.email = e.target.value)} />
+          </FormGroup>
+          <FormGroup>
+            <Label for="senha">Senha</Label>
+            <Input
+              type="password"
+              id="senha"
+              placeholder="Digite aqui sua senha"
+              onChange={(e) => (this.senha = e.target.value)} 
+            />
+          </FormGroup>
+          <Button color="primary" block onClick={this.save}>
+            Cadastrar
+          </Button>
+        </Form>
+      </div>
+    );
+  }
 }
