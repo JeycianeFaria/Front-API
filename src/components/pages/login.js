@@ -32,6 +32,7 @@ export default class Login extends Component {
       })
       .then((token) => {
         localStorage.setItem("token", token);
+        this.props.history.push("/cadastro-postagem");
       })
       .catch((e) => {
         this.setState({ message: e.message });

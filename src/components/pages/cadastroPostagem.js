@@ -1,5 +1,5 @@
 import react, { Component } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button,Alert } from "reactstrap";
 import "../../styles/formulario.css";
 
 export default class CadastroPostagem extends Component {
@@ -33,11 +33,11 @@ export default class CadastroPostagem extends Component {
 
     fetch(url, requestInfo)
       .then((response) => {
-        if(response.create){
-            console.log("Cadastro efetuado com sucesso!");
-            return response;
+        if (response.create) {
+          console.log("Cadastro efetuado com sucesso!");
+          return response;
         }
-          console.log("erro")
+        throw new Error(response.status)
       })
       .catch((e) => {
         this.setState({ message: e.message });
@@ -48,6 +48,14 @@ export default class CadastroPostagem extends Component {
     return (
       <div className="Formulario">
         <Form>
+          {this.state.message !== "" ? (
+            <Alert color="danger" className="text-center">
+              {this.state.message}
+            </Alert>
+          ) : (
+            ""
+          )}
+
           <h1>Cadastro Postagem</h1>
           <FormGroup>
             <Label for="titulo">Titulo</Label>
@@ -79,7 +87,7 @@ export default class CadastroPostagem extends Component {
           <FormGroup>
             <Label for="tipo">Tipo</Label>
             <Input
-              type="text"
+              type="select"
               id="tipo"
               placeholder="Ex: DOCUMENTACAO, VIDEO, ARTIGO"
               onChange={(e) => (this.tipo = e.target.value)}

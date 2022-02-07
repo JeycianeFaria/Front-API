@@ -1,5 +1,5 @@
 import react, { Component } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
 import "../../styles/formulario.css";
 
 export default class CadastroUsuario extends Component {
@@ -26,12 +26,11 @@ export default class CadastroUsuario extends Component {
     };
     fetch(url, requestInfo)
       .then((response) => {
-          if(response.create){
-            console.log("Cadastro efetuado com sucesso!");
-            return response;
-          }
-          console.log("erro")
-        
+        if (response.create) {
+          console.log("Cadastro efetuado com sucesso!");
+          return response;
+        }
+        throw new Error(response.status);
       })
       .catch((e) => {
         this.setState({ message: e.message });
@@ -42,6 +41,14 @@ export default class CadastroUsuario extends Component {
     return (
       <div className="Formulario">
         <Form>
+          {this.state.message !== "" ? (
+            <Alert color="danger" className="text-center">
+              {this.state.message}
+            </Alert>
+          ) : (
+            ""
+          )}
+
           <h1>Cadastro Usuario</h1>
           <FormGroup>
             <Label for="nome">Nome</Label>
@@ -54,7 +61,12 @@ export default class CadastroUsuario extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="email">Email</Label>
-            <Input type="text" id="email" placeholder="Digite aqui seu email" onChange={(e) => (this.email = e.target.value)} />
+            <Input
+              type="text"
+              id="email"
+              placeholder="Digite aqui seu email"
+              onChange={(e) => (this.email = e.target.value)}
+            />
           </FormGroup>
           <FormGroup>
             <Label for="senha">Senha</Label>
@@ -62,7 +74,7 @@ export default class CadastroUsuario extends Component {
               type="password"
               id="senha"
               placeholder="Digite aqui sua senha"
-              onChange={(e) => (this.senha = e.target.value)} 
+              onChange={(e) => (this.senha = e.target.value)}
             />
           </FormGroup>
           <Button color="primary" block onClick={this.save}>
