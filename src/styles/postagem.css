@@ -1,0 +1,11 @@
+.Postagem{
+    margin: 10px 0;
+    border: 2px solid var(--zupRed);
+    color: var(--zupWhite);
+    border-radius: 15px;
+    width: 800px;
+}
+
+.Postagem h1{
+    
+}
