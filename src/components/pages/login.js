@@ -64,7 +64,7 @@ export default class Login extends Component {
               onChange={(e) => (this.senha = e.target.value)}
             />
           </FormGroup>
-          <Button color="primary" block onClick={this.signIn}>
+          <Button className="Button"  block onClick={this.signIn}>
             Entrar
           </Button>
         </Form>

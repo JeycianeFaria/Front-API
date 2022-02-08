@@ -1,5 +1,7 @@
 .Formulario{
-    border: 1px blue solid;
+    border: 5px solid var(--zupRed);
+    color: var(--zupWhite);
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,4 +10,18 @@
     height: 100%;
     flex-direction: column;
     padding: 20px 5px;
+}
+
+.Button{
+    border: 1px solid var(--zupBlue);
+    background-color: var(--zupAqua);
+    color: var(--zupWhite);
+    font-size: large;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.Button:hover{
+    background-color: var(--zupRed);
+    transition: 0.4s;
 }

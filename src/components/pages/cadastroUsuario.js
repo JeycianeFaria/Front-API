@@ -77,7 +77,7 @@ export default class CadastroUsuario extends Component {
               onChange={(e) => (this.senha = e.target.value)}
             />
           </FormGroup>
-          <Button color="primary" block onClick={this.save}>
+          <Button className="Button"  block onClick={this.save}>
             Cadastrar
           </Button>
         </Form>

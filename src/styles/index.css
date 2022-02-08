@@ -1,4 +1,4 @@
- body {
+body {
   border: 2px var(--zupRed) solid;
   background-color: var(--zupDark);
   background-image: url(../images/Projeto\ Final\ _Estrelas_.svg);
@@ -8,6 +8,7 @@
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: center;
   height: 100vh;
+  max-height: 960px;
   width: 100vw; 
   display: flex;
   justify-content: center;
