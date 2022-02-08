@@ -3,7 +3,7 @@
     color: var(--zupWhite);
     height: 99vh;
     width: 100vw;
-    min-width: 1500px;
+    min-width: 80%;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -17,4 +17,8 @@
 .main{
     border: 1px red solid;
     height: 80%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
