@@ -18,7 +18,7 @@ export default class CadastroPostagem extends Component {
       link: this.link,
       tipo: this.tipo,
       tema: this.tema,
-      area: this.area,
+      areaAtuacao: this.areaAtuacao,
     };
     let token = localStorage.getItem("token");
 
@@ -87,7 +87,7 @@ export default class CadastroPostagem extends Component {
           <FormGroup>
             <Label for="tipo">Tipo</Label>
             <Input
-              type="select"
+              type="text"
               id="tipo"
               placeholder="Ex: DOCUMENTACAO, VIDEO, ARTIGO"
               onChange={(e) => (this.tipo = e.target.value)}
@@ -103,12 +103,12 @@ export default class CadastroPostagem extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="area">Area de Atuação</Label>
+            <Label for="areaAtuacao">Area de Atuação</Label>
             <Input
               type="text"
-              id="area"
+              id="areaAtuacao"
               placeholder="Ex: BACKEND, FRONTEND"
-              onChange={(e) => (this.senha = e.target.value)}
+              onChange={(e) => (this.areaAtuacao = e.target.value)}
             />
           </FormGroup>
           <Button color="primary" block onClick={this.save}>

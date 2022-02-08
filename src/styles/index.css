@@ -1,9 +1,29 @@
-body {
-  border: 1px red solid;
-  font-family: sans-serif;
+ body {
+  border: 2px var(--zupRed) solid;
+  background-color: var(--zupDark);
+  background-image: url(../images/Projeto\ Final\ _Estrelas_.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--zupWhite);
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: center;
   height: 100vh;
-  width: 100vw;
+  width: 100vw; 
   display: flex;
   justify-content: center;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}  
+
+:root{
+  --zupDark:#0e1a33;
+  --zupBlue: #0c3455;
+  --zupAqua: #40ba8d;
+  --zupRed: #ef4123;
+  --zupOrange:#f7941e;
+  --zupWhite: #e6e7e8;
 }

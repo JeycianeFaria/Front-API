@@ -1,0 +1,16 @@
+.container{
+    border: 1px green solid;
+    background: var(--zupDark);
+    color: var(--zupWhite);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.nav{
+    border: 1px yellow solid;
+}
+
+.main{
+    border: 1px red solid;
+}
