@@ -32,10 +32,11 @@ export default class Login extends Component {
       })
       .then((token) => {
         localStorage.setItem("token", token);
-        this.props.history.push("/cadastro-postagem");
+        this.props.history.push("/");
       })
       .catch((e) => {
         this.setState({ message: e.message });
+        document.getElementById("myForm").reset();
       });
   };
 

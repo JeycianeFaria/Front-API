@@ -1,11 +1,219 @@
-.Postagem{
-    margin: 10px 0;
-    border: 2px solid var(--zupRed);
-    color: var(--zupWhite);
-    border-radius: 15px;
-    width: 800px;
+@keyframes shake {
+  25% {
+    transform: rotate(calc(var(--angle) * -1));
+  }
+
+  50% {
+    transform: rotate(var(--angle));
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
-.Postagem h1{
-    
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--zupDark);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--zupBlueTransparent);
+}
+
+.postagem {
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+
+  background: var(--zupWhiteTransparent);
+  color: var(--zupBlue);
+  border-radius: 5px;
+  width: 800px;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.header-post {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: space-around;
+}
+
+.postagem h1 {
+  display: inline-flex;
+}
+
+.tag-tipo {
+  border-radius: 2px;
+  padding: 3px 2px;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 5px 0 0;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: var(--zupAqua);
+  border-color: var(--zupAquaHover);
+ 
+}
+
+.tag-tipo:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.tag-tipo:hover {
+  background-color: var(--zupAquaHover);
+}
+
+.tag-tema {
+  border-radius: 2px;
+  padding: 3px 2px;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 5px 0 0;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: var(--zupOrange);
+  border-color: var(--zupOrangeHover);
+}
+
+.tag-tema:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.tag-tema:hover {
+  background-color: var(--zupOrangeHover);
+}
+
+.tag-area {
+  border-radius: 2px;
+  padding: 3px 2px;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 5px 0 0;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: var(--zupGreen);
+  border-color: var(--zupGreenHover);
+}
+
+.tag-area:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.tag-area:hover {
+  background-color: var(--zupGreenHover);
+}
+
+.like {
+  background-image: url("../images/heart_like.svg");
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  background-size: 40px;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.like div {
+  display: inline-flex;
+  align-self: center;
+  display: flex;
+  width: 36px;
+  align-self: center;
+  height: 36px;
+  text-align: center;
+  font-size: 16px;
+  padding: 7px 0 0 15px;
+}
+
+.description {
+  padding: 15px 0;
+  margin: 15px 0;
+  border-top: 2px solid #ffffff59;
+  border-bottom: 2px solid #ffffff59;
+}
+
+.autor {
+  border-bottom: 2px solid #ffffff59;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.url {
+  --width: 100%;
+  --time: 0.7s;
+
+  position: relative;
+  display: inline-block;
+  padding: 20px 80px;
+
+  color: var(--zupWhite);
+  background: var(--zupBlue);
+  overflow: hidden;
+  justify-self: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.url text {
+  position: relative;
+  z-index: 5;
+
+  transition: color var(--time);
+}
+
+.url:hover text {
+  color: var(--zupWhite);
+}
+
+.url span {
+  position: absolute;
+  display: block;
+  content: "";
+  z-index: 0;
+  width: 0;
+  height: 0;
+
+  border-radius: 100%;
+  background: var(--zupRed);
+
+  transform: translate(-50%, -50%);
+  transition: width var(--time), padding-top var(--time);
+}
+
+.url:hover span {
+  width: calc(var(--width) * 2.25);
+  padding-top: calc(var(--width) * 2.25);
+}
+
+.animated {
+  --angle: 5deg;
+  animation: shake 0.3s;
+}
+
+.display {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 0.1em;
+  text-align: center;
+  align-items: stretch;
 }

@@ -1,5 +1,4 @@
 body {
-  border: 2px var(--zupRed) solid;
   background-color: var(--zupDark);
   background-image: url(../images/Projeto\ Final\ _Estrelas_.svg);
   background-repeat: no-repeat;
@@ -24,7 +23,13 @@ body {
   --zupDark:#0e1a33;
   --zupBlue: #0c3455;
   --zupAqua: #40ba8d;
+  --zupAquaHover:#349471;
   --zupRed: #ef4123;
   --zupOrange:#f7941e;
+  --zupOrangeHover:#ca7a19;
+  --zupGreen:#8dc63f;
+  --zupGreenHover:#729e34;
   --zupWhite: #e6e7e8;
+  --zupBlueTransparent: #09172894;
+  --zupWhiteTransparent:#e6e7e8c4;
 }

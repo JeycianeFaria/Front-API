@@ -1,4 +1,5 @@
 .Formulario{
+    background-color: var(--zupBlueTransparent);
     border: 5px solid var(--zupRed);
     color: var(--zupWhite);
     border-radius: 15px;

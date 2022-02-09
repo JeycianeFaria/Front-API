@@ -37,10 +37,11 @@ export default class CadastroPostagem extends Component {
           console.log("Cadastro efetuado com sucesso!");
           return response;
         }
-        throw new Error(response.status)
+        throw new Error("Cadastro não realizado!")
       })
       .catch((e) => {
         this.setState({ message: e.message });
+        document.getElementById("myForm").reset();
       });
   };
 

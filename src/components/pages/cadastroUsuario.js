@@ -27,20 +27,20 @@ export default class CadastroUsuario extends Component {
     fetch(url, requestInfo)
       .then((response) => {
         if (response.create) {
-          console.log("Cadastro efetuado com sucesso!");
           return response;
         }
-        throw new Error(response.status);
+        throw new Error("Cadastro não realizado!");
       })
       .catch((e) => {
         this.setState({ message: e.message });
+        document.getElementById("myForm").reset();
       });
   };
 
   render() {
     return (
       <div className="Formulario">
-        <Form>
+        <Form id="myForm">
           {this.state.message !== "" ? (
             <Alert color="danger" className="text-center">
               {this.state.message}
