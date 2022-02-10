@@ -15,7 +15,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
             {...rest}
             render = { props =>
                 isAuth() ? (
-                    <Component {...rest} />
+                    <Component {...props} />
                 ) : (
                     <Redirect to={{
                         pathname: '/',

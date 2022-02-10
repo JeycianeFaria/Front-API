@@ -1,6 +1,6 @@
 body {
-  background-color: var(--zupDark);
   background-image: url(../images/Projeto\ Final\ _Estrelas_.svg);
+  background-color: #091527 !important;
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--zupWhite);

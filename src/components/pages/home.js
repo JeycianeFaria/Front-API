@@ -1,5 +1,5 @@
 import react, { Component } from "react";
-import { Container, Navbar } from "reactstrap";
+import { Container, Input, Navbar } from "reactstrap";
 import "../../styles/home.css";
 import Main from "../main";
 
@@ -9,7 +9,7 @@ export default class Home extends Component {
   };
 
   componentDidMount() {
-    const url = "http://localhost:8080/postagem";
+    const url = "https://zup-link.herokuapp.com/postagem";
     const requestInfo = {
       method: "GET",
       headers: new Headers({

@@ -1,5 +1,6 @@
 import react, { Component } from "react";
-import { Form, FormGroup, Label, Input, Button,Alert } from "reactstrap";
+import { Redirect, useHistory } from "react-router-dom";
+import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
 import "../../styles/formulario.css";
 
 export default class CadastroPostagem extends Component {
@@ -10,8 +11,9 @@ export default class CadastroPostagem extends Component {
     };
   }
 
+
   save = () => {
-    const url = "http://localhost:8080/postagem";
+    const url = "https://zup-link.herokuapp.com/postagem";
     let data = {
       titulo: this.titulo,
       descricao: this.descricao,
@@ -33,11 +35,13 @@ export default class CadastroPostagem extends Component {
 
     fetch(url, requestInfo)
       .then((response) => {
-        if (response.create) {
-          console.log("Cadastro efetuado com sucesso!");
+        if(response.ok){
+          this.props.history.push('/')
+        }
+        if (response.ok) {
           return response;
         }
-        throw new Error("Cadastro não realizado!")
+        throw new Error(response.status);
       })
       .catch((e) => {
         this.setState({ message: e.message });
@@ -48,7 +52,7 @@ export default class CadastroPostagem extends Component {
   render() {
     return (
       <div className="Formulario">
-        <Form>
+        <Form id="myForm">
           {this.state.message !== "" ? (
             <Alert color="danger" className="text-center">
               {this.state.message}
@@ -112,7 +116,7 @@ export default class CadastroPostagem extends Component {
               onChange={(e) => (this.areaAtuacao = e.target.value)}
             />
           </FormGroup>
-          <Button className="Button"  block onClick={this.save}>
+          <Button className="Button" block onClick={this.save}>
             Cadastrar
           </Button>
         </Form>

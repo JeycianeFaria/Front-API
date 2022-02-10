@@ -11,7 +11,7 @@ export default class Login extends Component {
   }
 
   signIn = () => {
-    const url = "http://localhost:8080/login";
+    const url = "https://zup-link.herokuapp.com/login";
     const data = {
       email: this.email,
       senha: this.senha,
@@ -43,7 +43,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Formulario">
-        <Form>
+        <Form id="myForm">
           {this.state.message !== "" ? <Alert color="danger" className="text-center">{this.state.message}</Alert> : ""}
 
           <h1>Login</h1>

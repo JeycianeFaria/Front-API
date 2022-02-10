@@ -11,7 +11,7 @@ export default class CadastroUsuario extends Component {
   }
 
   save = () => {
-    const url = "http://localhost:8080/usuario";
+    const url = "https://zup-link.herokuapp.com/usuario";
     let data = {
       nome: this.nome,
       email: this.email,
@@ -26,10 +26,15 @@ export default class CadastroUsuario extends Component {
     };
     fetch(url, requestInfo)
       .then((response) => {
-        if (response.create) {
+        if (response.ok) {
           return response;
         }
         throw new Error("Cadastro não realizado!");
+      })
+      .then((response)=>{
+        if(response.ok){
+          this.props.history.push('/')
+        }
       })
       .catch((e) => {
         this.setState({ message: e.message });
