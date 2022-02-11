@@ -46,6 +46,9 @@ export default class CadastroPostagem extends Component {
           if (response.status === 403) {
             this.props.history.push("/login");
           }
+          if(response.status === 422 ){
+            throw new Error("Link já cadastrado!")
+          }
           throw new Error("Cadastro não realizado!")
       })
       .catch((e) => {

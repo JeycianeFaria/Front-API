@@ -29,6 +29,9 @@ export default class CadastroUsuario extends Component {
         if (response.ok) {
           return response;
         }
+        if(response.status === 422 ){
+          throw new Error("Você deve utilizar o email coorporativo.")
+        }
         throw new Error("Cadastro não realizado!");
       })
       .then((response)=>{

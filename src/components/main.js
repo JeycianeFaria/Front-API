@@ -92,7 +92,7 @@ function Main(props) {
        postagens?.postagens?.map((postagem) => (
         <div className="postagem" key={postagem.id}>
           <div className="header-post">
-            <h1>{postagem.titulo}</h1>
+            <h1>{"#" + postagem.id + " " + postagem.titulo}</h1>
             <div className="like">
               { postagem.likes > 0 ?
                 <Red/>:

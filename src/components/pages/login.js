@@ -28,7 +28,7 @@ export default class Login extends Component {
         if (response.ok) {
           return response.headers.get("Authorization");
         }
-        throw new Error("Login inválido");
+        throw new Error("Email ou senha incorretos!");
       })
       .then((token) => {
         localStorage.setItem("token", token);
