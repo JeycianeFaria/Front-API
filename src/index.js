@@ -1,12 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./app";
 
 ReactDOM.render(
-  <div>
-    <h1>ZupLink</h1>
-  </div>,
-  document.getElementById('root')
+  <App />, 
+  document.getElementById("root")
 );
-
