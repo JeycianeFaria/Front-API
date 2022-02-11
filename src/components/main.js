@@ -1,10 +1,12 @@
 import React, {useState, useEffect } from "react";
-import { Link, Route, Router } from "react-router-dom";
-import { Button } from "reactstrap";
+import {ReactComponent as Red} from "../images/heartRed.svg"
+import {ReactComponent as Black} from "../images/heartBlack.svg"
+import { useHistory } from "react-router-dom";
 import "../styles/postagem.css";
 
 function Main(props) {
   
+  const history = useHistory();
   const [postagens, setPostagens] = useState(props.postagens);
 
   const onLike = (id) => {
@@ -20,10 +22,17 @@ function Main(props) {
     };
     fetch(`${url}/${id}`, requestInfo)
       .then((response) => {
-        console.log("clique");
+        if(response.ok){
+          return response
+        }else{
+          throw new Error("Something went wrong")
+        }
       })
-      .then((token) => {})
-      .catch((e) => {});
+      .catch(
+        (e) => {
+        debugger
+        history.push('/login')
+      });
   };
   
   useEffect(() => {
@@ -85,6 +94,10 @@ function Main(props) {
           <div className="header-post">
             <h1>{postagem.titulo}</h1>
             <div className="like">
+              { postagem.likes > 0 ?
+                <Red/>:
+               <Black/>
+              }
               <input
                 id="input"
                 type="button"

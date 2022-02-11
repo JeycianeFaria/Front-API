@@ -11,8 +11,8 @@ export default class CadastroPostagem extends Component {
     };
   }
 
-
   save = () => {
+
     const url = "https://zup-link.herokuapp.com/postagem";
     let data = {
       titulo: this.titulo,
@@ -35,13 +35,18 @@ export default class CadastroPostagem extends Component {
 
     fetch(url, requestInfo)
       .then((response) => {
-        if(response.ok){
-          this.props.history.push('/')
-        }
-        if (response.ok) {
-          return response;
-        }
-        throw new Error(response.status);
+          if (response.ok) {
+            this.props.history.push("/");
+          }
+        else 
+          if (response.ok) {
+            return response;
+          }
+        else
+          if (response.status === 403) {
+            this.props.history.push("/login");
+          }
+          throw new Error("Cadastro não realizado!")
       })
       .catch((e) => {
         this.setState({ message: e.message });

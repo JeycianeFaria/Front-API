@@ -39,7 +39,7 @@
 
 .header-post {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-content: space-around;
@@ -47,6 +47,7 @@
 
 .postagem h1 {
   display: inline-flex;
+  max-width: calc(100% - 80px);
 }
 
 .tag-tipo {
@@ -60,7 +61,6 @@
   display: inline-block;
   background-color: var(--zupAqua);
   border-color: var(--zupAquaHover);
- 
 }
 
 .tag-tipo:active {
@@ -120,29 +120,47 @@
 }
 
 .like {
-  background-image: url("../images/heart_like.svg");
   background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   align-content: center;
-  background-size: 40px;
-  cursor: pointer;
   display: inline-flex;
+  position: relative;
 }
 
 .like div {
   display: inline-flex;
   align-self: center;
-  display: flex;
-  width: 36px;
+  display: inline-block;
+  width: 60px;
   align-self: center;
-  height: 36px;
+  height: 60px;
   text-align: center;
-  font-size: 16px;
-  padding: 7px 0 0 15px;
+  padding-top: 10px;
+  position: absolute;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.like svg {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+}
+
+.like input{
+  position: absolute;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border: 0;
+  cursor:pointer;
+  z-index: 9999;
 }
 
 .description {
